@@ -42,6 +42,9 @@ def upload_mseed_file_lunar():
 
         start_time = 12720     # model output
 
+        # get the speed of the data at the start time
+        speed = tr_data[int(start_time)]
+
         # plot the data
         fig, ax = plt.subplots()
         ax.plot(tr_times, tr_data)  #time on x-axis and velocity on y-axis
@@ -58,7 +61,7 @@ def upload_mseed_file_lunar():
         image_base64 = base64.b64encode(buf.read()).decode('utf-8')
 
         #return the image to the user in form of png
-        return jsonify({'image': image_base64}), 200
+        return jsonify({'image': image_base64, 'speed':speed}), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -86,6 +89,9 @@ def upload_mseed_file_mars():
 
         start_time = 12720     # model output
 
+        # get the speed of the data at the start time
+        speed = tr_data[int(start_time)]
+
         # plot the data
         fig, ax = plt.subplots()
         ax.plot(tr_times, tr_data)  #time on x-axis and velocity on y-axis
@@ -102,7 +108,7 @@ def upload_mseed_file_mars():
         image_base64 = base64.b64encode(buf.read()).decode('utf-8')
 
         #return the image to the user in form of png
-        return jsonify({'image': image_base64}), 200
+        return jsonify({'image': image_base64, 'speed':speed}), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
