@@ -17,7 +17,7 @@
             const formData = new FormData();
             formData.append('file', file);
 
-            fetch('http://92.113.26.243:2003/upload', {
+            fetch('http://127.0.0.1:5000/upload_mseed', {
                 method: 'POST',
                 body: formData
             })
