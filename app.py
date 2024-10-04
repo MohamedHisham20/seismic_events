@@ -12,7 +12,10 @@ CORS(app)
 # Set maximum upload size to 100 MB
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB
 
-
+#landing page
+@app.route('/')
+def index():
+    return 'Welcome to the landing page'
 
 # Route to handle file upload
 @app.route('/upload', methods=['POST'])
