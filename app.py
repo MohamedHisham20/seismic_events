@@ -47,6 +47,9 @@ def predict_seismic_event(passed_model=None):
     # get the speed of the data at the start time
     speed = tr_data[int(predicted_relative_time)]
 
+    #make speed positive
+    speed = abs(speed)
+
     # randomize the lat and lng of the data
 
     # the lat between -84 and 77
